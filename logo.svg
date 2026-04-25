@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" role="img" aria-label="Forrest Peak Capital">
+  <defs>
+    <linearGradient id="peakGrad" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1f4d2b"/>
+      <stop offset="100%" stop-color="#0d2615"/>
+    </linearGradient>
+  </defs>
+  <!-- mark: stylized layered peaks -->
+  <g transform="translate(8 10)">
+    <path d="M0 56 L20 22 L36 42 L52 8 L72 56 Z" fill="url(#peakGrad)"/>
+    <path d="M20 56 L36 32 L48 56 Z" fill="#86b890" opacity="0.55"/>
+    <circle cx="58" cy="14" r="3" fill="#f5f0d8"/>
+  </g>
+  <!-- wordmark -->
+  <g transform="translate(96 0)" font-family="Georgia, 'Times New Roman', serif" fill="#0d2615">
+    <text x="0" y="38" font-size="26" letter-spacing="-0.5">FORREST PEAK</text>
+    <text x="0" y="62" font-size="11" letter-spacing="6" fill="#1f4d2b">C&#160;A&#160;P&#160;I&#160;T&#160;A&#160;L</text>
+  </g>
+</svg>
