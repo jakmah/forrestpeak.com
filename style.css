@@ -139,6 +139,22 @@ section .intro {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
 }
 
+/* structure / terms list */
+.terms {
+  margin-top: 52px;
+  border-top: 1px solid var(--line);
+}
+.terms .term {
+  display: grid; grid-template-columns: 240px 1fr; gap: 32px;
+  padding: 24px 0; border-bottom: 1px solid var(--line);
+}
+.terms dt {
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--accent); padding-top: 3px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+.terms dd { font-size: 16px; color: var(--ink-soft); }
+
 #contact .row {
   display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
   margin-top: 40px;
@@ -179,6 +195,7 @@ footer .nav-col { display: flex; flex-direction: column; gap: 8px; }
   .hero .ridge { height: 220px; }
   .cards { grid-template-columns: 1fr; }
   .metrics { grid-template-columns: 1fr 1fr; }
+  .terms .term { grid-template-columns: 1fr; gap: 6px; }
   #contact .row { grid-template-columns: 1fr; }
   footer .wrap { grid-template-columns: 1fr; }
   header nav { display: none; }
