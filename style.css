@@ -197,8 +197,10 @@ footer p, footer a {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
 }
 footer .legal {
+  display: block;
   margin-top: 28px; font-size: 11px; color: var(--ink-soft);
   border-top: 1px solid var(--line); padding-top: 20px;
+  max-width: var(--max);
 }
 footer .nav-col { display: flex; flex-direction: column; gap: 8px; }
 
@@ -215,7 +217,7 @@ footer .nav-col { display: flex; flex-direction: column; gap: 8px; }
 .legal-page p, .legal-page li { font-size: 16px; color: var(--ink-soft); margin-bottom: 14px; }
 .legal-page ul { padding-left: 22px; margin-bottom: 14px; }
 .legal-page a { color: var(--accent); }
-.legal-links { margin-bottom: 12px; }
+.legal-links { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.3px; }
 .legal-links a { color: var(--ink-soft); }
 
 @media (max-width: 880px) {
