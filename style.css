@@ -202,7 +202,24 @@ footer .legal {
 }
 footer .nav-col { display: flex; flex-direction: column; gap: 8px; }
 
+/* legal pages */
+.legal-page { padding: 70px 0 30px; }
+.legal-page .wrap { max-width: 820px; }
+.legal-page h1 { font-size: 38px; letter-spacing: -0.6px; margin-bottom: 8px; }
+.legal-page .updated {
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: 36px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+.legal-page h2 { font-size: 21px; margin: 38px 0 12px; color: var(--accent); }
+.legal-page p, .legal-page li { font-size: 16px; color: var(--ink-soft); margin-bottom: 14px; }
+.legal-page ul { padding-left: 22px; margin-bottom: 14px; }
+.legal-page a { color: var(--accent); }
+.legal-links { margin-bottom: 12px; }
+.legal-links a { color: var(--ink-soft); }
+
 @media (max-width: 880px) {
+  .legal-page h1 { font-size: 30px; }
   .hero { padding: 60px 0 80px; }
   .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
   .hero h1 { font-size: 44px; }
