@@ -107,6 +107,7 @@ section h2 {
 section .intro {
   font-size: 18px; max-width: 720px; color: var(--ink-soft);
 }
+section .intro + .intro { margin-top: 18px; }
 
 .cards {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
