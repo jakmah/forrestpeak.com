@@ -1,583 +1,564 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Forrest Peak Capital — Proprietary Investments and Strategic Capital</title>
 <meta name="description" content="Forrest Peak Capital acquires, holds and manages investments and proprietary assets for its own account across selected international markets. It also provides selective corporate financing from its own capital.">
 <meta property="og:title" content="Forrest Peak Capital">
 <meta property="og:description" content="Forrest Peak Capital acquires, holds and manages investments and proprietary assets for its own account across selected international markets. It also provides selective corporate financing from its own capital.">
 <meta property="og:type" content="website">
-<link rel="icon" href="/logo.svg" type="image/svg+xml">
+<link rel="icon" href="/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,420;9..144,560&family=Spline+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    /* NOCTURNE — capital at depth */
-    --midnight:#0a1418;      /* deep teal-midnight base */
-    --abyss:#070f12;         /* darkest panel */
-    --forest:#11231f;        /* deep forest green */
-    --teal:#16403f;          /* muted petrol teal */
-    --hairline:rgba(196,168,108,0.18); /* brass hairline */
-    --brass:#c9a35e;         /* warm luminous accent */
-    --amber:#e7bd78;         /* soft dawn light */
-    --bone:#ece7dc;          /* bone text */
-    --bone-dim:#a7a89e;      /* dimmed body text */
-    --bone-faint:#6f7872;    /* faint / captions */
+    --abyss:#0A1410;      /* valley floor — green-biased deep */
+    --depth:#112019;      /* raised surface, midnight pine */
+    --depth2:#0E1A14;
+    --moss:#2E4A3A;       /* structural lines */
+    --moss-dim:#1B2C23;
+    --sage:#8FB39B;       /* secondary text / lichen highlight */
+    --mist:#DCE6DD;       /* primary text — cold pale green-white */
+    --ember:#D8A24A;      /* the single warm summit light */
+    --ember-soft:rgba(216,162,74,.16);
+
+    --serif:"Fraunces",Georgia,"Times New Roman",serif;
+    --sans:"Spline Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --mono:"Spline Sans Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+    --rail:88px;
     --maxw:1180px;
+    --pad:clamp(22px,5vw,72px);
   }
 
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
   body{
-    background:var(--midnight);
-    color:var(--bone);
-    font-family:"Inter",system-ui,-apple-system,sans-serif;
-    font-size:17px;
-    line-height:1.65;
+    margin:0;
+    background:var(--abyss);
+    color:var(--mist);
+    font-family:var(--sans);
+    font-size:16.5px;
+    line-height:1.62;
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
     overflow-x:hidden;
   }
-  a{color:inherit;text-decoration:none}
 
-  /* ---- shared type ---- */
-  .label{
-    font-size:11px;
-    letter-spacing:.28em;
-    text-transform:uppercase;
-    color:var(--brass);
-    font-weight:600;
-  }
-  .serif{font-family:"Fraunces",Georgia,serif;font-weight:500;letter-spacing:-.01em;line-height:1.08}
-  h2.section-title{
-    font-family:"Fraunces",Georgia,serif;
-    font-weight:500;
-    font-size:clamp(2rem,4.4vw,3.3rem);
-    line-height:1.04;
-    letter-spacing:-.02em;
-    color:var(--bone);
-    margin-top:.5rem;
-  }
-  .section-kicker{
-    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
-    color:var(--brass);font-weight:600;
-  }
-  .lede,.body-text{color:var(--bone-dim)}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--ember-soft);color:var(--mist);}
 
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  :focus-visible{
+    outline:2px solid var(--ember);
+    outline-offset:3px;
+    border-radius:2px;
+  }
 
-  /* ===== NAV ===== */
-  header.nav{
-    position:sticky;top:0;z-index:40;
-    background:rgba(10,20,24,.72);
-    backdrop-filter:blur(14px) saturate(120%);
-    -webkit-backdrop-filter:blur(14px) saturate(120%);
-    border-bottom:1px solid var(--hairline);
+  .skip{
+    position:absolute;left:-999px;top:0;z-index:200;
+    background:var(--ember);color:var(--abyss);
+    padding:10px 16px;font-family:var(--mono);font-size:13px;
   }
-  .nav-inner{
-    max-width:var(--maxw);margin:0 auto;padding:16px 28px;
-    display:flex;align-items:center;gap:28px;
-  }
-  .brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
-  .brand img{height:30px;width:auto;display:block}
-  .brand .bname{
-    font-family:"Fraunces",serif;font-size:1.06rem;font-weight:600;
-    letter-spacing:.01em;color:var(--bone);
-  }
-  nav.links{margin-left:auto;display:flex;gap:26px;flex-wrap:wrap}
-  nav.links a{
-    font-size:13px;color:var(--bone-dim);letter-spacing:.02em;
-    position:relative;padding:4px 0;transition:color .25s;
-  }
-  nav.links a::after{
-    content:"";position:absolute;left:0;bottom:-2px;height:1px;width:0;
-    background:var(--amber);transition:width .3s ease;
-  }
-  nav.links a:hover{color:var(--bone)}
-  nav.links a:hover::after{width:100%}
+  .skip:focus{left:8px;top:8px;}
 
-  :focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:2px}
-
-  /* ===== HERO — dawn ridge nocturne ===== */
-  .hero{position:relative;overflow:hidden;isolation:isolate}
-  .hero-sky{
-    position:absolute;inset:0;z-index:-3;
-    background:
-      radial-gradient(120% 90% at 70% 118%, rgba(231,189,120,0.20) 0%, rgba(201,163,94,0.07) 26%, rgba(10,20,24,0) 52%),
-      radial-gradient(150% 120% at 50% 130%, rgba(22,64,63,0.55) 0%, rgba(10,20,24,0) 60%),
-      linear-gradient(180deg, #060d10 0%, #0a1418 46%, #0c1c1c 100%);
+  /* ---------- depth rail (signature spine) ---------- */
+  .rail{
+    position:fixed;top:0;left:0;width:var(--rail);height:100vh;
+    border-right:1px solid var(--moss-dim);
+    background:linear-gradient(180deg,var(--abyss),var(--depth2));
+    z-index:40;
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:space-between;
+    padding:18px 0 22px;
+    pointer-events:none;
   }
-  /* slow drifting dawn glow */
-  .hero-glow{
-    position:absolute;left:50%;bottom:-12%;width:120vw;height:60vh;z-index:-2;
-    transform:translateX(-50%);
-    background:radial-gradient(closest-side, rgba(231,189,120,0.34), rgba(231,189,120,0.10) 45%, rgba(231,189,120,0) 72%);
+  .rail__cap{
+    font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+    color:var(--sage);writing-mode:vertical-rl;transform:rotate(180deg);
+    opacity:.7;
+  }
+  .rail__gauge{
+    flex:1;width:100%;position:relative;
+    margin:20px 0;
+  }
+  .rail__readout{
+    position:absolute;left:50%;transform:translateX(-50%);
+    font-family:var(--mono);font-size:10px;color:var(--sage);
+    letter-spacing:.04em;text-align:center;width:100%;
+    transition:color .5s ease,opacity .5s ease;opacity:.45;
+  }
+  .rail__readout.is-active{color:var(--ember);opacity:1;}
+  .rail__readout::before{
+    content:"";position:absolute;top:50%;left:8px;width:14px;height:1px;
+    background:currentColor;transform:translateY(-50%);
+  }
+  .rail__readout::after{
+    content:"";position:absolute;top:50%;right:8px;width:14px;height:1px;
+    background:currentColor;transform:translateY(-50%);
+  }
+  .rail__star{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--ember);
+    box-shadow:0 0 0 4px var(--ember-soft),0 0 18px 2px rgba(216,162,74,.5);
+  }
+
+  /* ---------- shared layout ---------- */
+  .wrap{
+    margin-left:var(--rail);
+  }
+  .col{
+    max-width:var(--maxw);
+    padding-left:var(--pad);
+    padding-right:var(--pad);
+    margin:0 auto;
+  }
+  .lede-col{max-width:60ch;}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--sage);margin:0 0 18px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .eyebrow::after{content:"";height:1px;flex:0 0 40px;background:var(--moss);}
+
+  h1,h2,h3{font-family:var(--serif);font-weight:420;font-style:normal;
+    line-height:1.04;letter-spacing:-.012em;margin:0;
+    font-variation-settings:"opsz" 144,"SOFT" 0;}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:30;
+    background:rgba(10,20,16,.82);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--moss-dim);
+  }
+  .topbar__in{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:24px;padding-top:16px;padding-bottom:16px;
+  }
+  .brand{display:flex;align-items:center;gap:0;}
+  .brand img{height:34px;width:auto;display:block;
+    filter:brightness(0) invert(1);opacity:.92;}
+  nav.main{display:flex;flex-wrap:wrap;gap:clamp(12px,1.7vw,26px);
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;}
+  nav.main a{color:var(--sage);padding:4px 0;position:relative;
+    transition:color .25s ease;}
+  nav.main a:hover{color:var(--mist);}
+  nav.main a::after{content:"";position:absolute;left:0;bottom:-2px;
+    width:0;height:1px;background:var(--ember);transition:width .3s ease;}
+  nav.main a:hover::after{width:100%;}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:clamp(70px,12vw,150px) 0 clamp(54px,7vw,96px);overflow:hidden;border-top:none;}
+  .hero__glow{
+    position:absolute;top:-10%;right:-6%;width:64vw;height:64vw;max-width:760px;max-height:760px;
+    background:radial-gradient(circle at 60% 40%,rgba(216,162,74,.13),rgba(46,74,58,.10) 38%,transparent 66%);
     filter:blur(8px);
-    animation:dawnBreathe 17s ease-in-out infinite alternate;
-    pointer-events:none;
+    pointer-events:none;z-index:0;
+    animation:breathe 14s ease-in-out infinite;
   }
-  @keyframes dawnBreathe{
-    0%{transform:translateX(-50%) translateY(14px) scale(0.96);opacity:.78}
-    100%{transform:translateX(-50%) translateY(-8px) scale(1.06);opacity:1}
+  @keyframes breathe{0%,100%{opacity:.85;transform:scale(1);}50%{opacity:1;transform:scale(1.06);}}
+  @media (prefers-reduced-motion:reduce){.hero__glow{animation:none;}}
+  .hero .col{position:relative;z-index:1;}
+  h1{
+    font-size:clamp(2.7rem,7.2vw,5.6rem);
+    margin:0 0 30px;max-width:16ch;
+    font-variation-settings:"opsz" 144,"SOFT" 0;
   }
-  /* fine starlight grain */
-  .hero-stars{
-    position:absolute;inset:0;z-index:-2;opacity:.5;
-    background-image:
-      radial-gradient(1px 1px at 18% 22%, rgba(236,231,220,.5), transparent),
-      radial-gradient(1px 1px at 42% 12%, rgba(236,231,220,.35), transparent),
-      radial-gradient(1px 1px at 73% 28%, rgba(236,231,220,.4), transparent),
-      radial-gradient(1px 1px at 88% 16%, rgba(236,231,220,.3), transparent),
-      radial-gradient(1px 1px at 60% 8%, rgba(236,231,220,.4), transparent),
-      radial-gradient(1px 1px at 30% 6%, rgba(236,231,220,.25), transparent);
-    pointer-events:none;
+  h1 .ln{display:block;}
+  h1 .ln2{color:var(--sage);}
+  h1 .star{
+    display:inline-block;width:.34em;height:.34em;border-radius:50%;
+    background:var(--ember);vertical-align:.42em;margin-left:.18em;
+    box-shadow:0 0 16px 2px rgba(216,162,74,.6),0 0 0 4px var(--ember-soft);
   }
-  /* ridge horizon line */
-  .hero-ridge{
-    position:absolute;left:0;right:0;bottom:0;width:100%;height:30vh;
-    min-height:170px;z-index:-1;display:block;pointer-events:none;
+  .lede{font-size:clamp(1.08rem,1.7vw,1.32rem);color:var(--mist);max-width:54ch;margin:0 0 22px;line-height:1.55;}
+  .secondary{font-size:1rem;color:var(--sage);max-width:54ch;margin:0 0 38px;
+    padding-left:18px;border-left:1px solid var(--moss);}
+  .metaline{
+    font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--sage);display:flex;flex-wrap:wrap;gap:10px 0;
+    padding-top:26px;border-top:1px solid var(--moss-dim);
   }
-  .hero-inner{
-    max-width:var(--maxw);margin:0 auto;padding:118px 28px 168px;
-    position:relative;
+  .metaline span+span::before{content:"·";color:var(--ember);margin:0 16px;}
+
+  /* ---------- generic section ---------- */
+  section{padding:clamp(58px,8vw,108px) 0;border-top:1px solid var(--moss-dim);}
+  .sec-head{margin-bottom:clamp(34px,5vw,56px);max-width:var(--maxw);}
+  .sec-title{font-size:clamp(1.9rem,4.2vw,3.1rem);max-width:18ch;}
+  .sec-kicker{font-family:var(--mono);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--ember);margin:0 0 10px;}
+
+  /* overview prose */
+  .prose p{margin:0 0 18px;color:var(--sage);max-width:68ch;font-size:1.03rem;}
+  .prose p strong{color:var(--mist);font-weight:500;}
+
+  /* ledger rows — survey transect of capabilities */
+  .ledger{border-top:1px solid var(--moss-dim);margin-top:28px;}
+  .row{
+    display:grid;grid-template-columns:64px minmax(0,22ch) 1fr;
+    gap:clamp(14px,3vw,40px);align-items:baseline;
+    padding:22px 0;border-bottom:1px solid var(--moss-dim);
+    position:relative;transition:background .3s ease;
   }
-  .hero .eyebrow{margin-bottom:26px}
-  .hero h1{
-    font-family:"Fraunces",serif;font-weight:500;
-    font-size:clamp(2.7rem,7vw,5.4rem);
-    line-height:1.02;letter-spacing:-.028em;
-    color:var(--bone);max-width:16ch;
-    margin-bottom:30px;
-  }
-  .hero h1 .light{
-    color:transparent;
-    background:linear-gradient(100deg,var(--amber),var(--brass) 70%);
-    -webkit-background-clip:text;background-clip:text;
-    font-style:italic;
-  }
-  .hero .lede{font-size:clamp(1.05rem,1.7vw,1.32rem);max-width:46ch;color:var(--bone-dim);line-height:1.6}
-  .hero .secondary{
-    margin-top:20px;max-width:46ch;font-size:.97rem;color:var(--bone-faint);
-    padding-left:18px;border-left:1px solid var(--hairline);
-  }
-  .hero .metaline{
-    margin-top:46px;display:flex;flex-wrap:wrap;gap:10px 0;align-items:center;
-    font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-faint);
-  }
-  .hero .metaline span{display:inline-flex;align-items:center}
-  .hero .metaline span:not(:last-child)::after{
-    content:"";display:inline-block;width:5px;height:5px;border-radius:50%;
-    background:var(--brass);margin:0 16px;opacity:.7;
+  .row:hover{background:linear-gradient(90deg,rgba(216,162,74,.05),transparent 70%);}
+  .row__idx{font-family:var(--mono);font-size:12px;color:var(--moss);letter-spacing:.05em;padding-top:5px;}
+  .row:hover .row__idx{color:var(--ember);}
+  .row__term{font-family:var(--serif);font-size:1.18rem;color:var(--mist);font-variation-settings:"opsz" 40,"SOFT" 0;}
+  .row__def{color:var(--sage);font-size:.99rem;line-height:1.55;}
+  @media (max-width:720px){
+    .row{grid-template-columns:46px 1fr;}
+    .row__def{grid-column:2;}
   }
 
-  /* ===== SECTION SCAFFOLD ===== */
-  section{padding:104px 0;position:relative}
-  .sec-divider{border-top:1px solid var(--hairline)}
-  .sec-head{max-width:760px;margin-bottom:56px}
-  .sec-head .body-text{margin-top:22px;font-size:1.08rem;line-height:1.62}
+  /* three feature cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--moss-dim);
+    border:1px solid var(--moss-dim);margin-top:34px;}
+  .cards--two{grid-template-columns:repeat(2,1fr);}
+  .card{background:var(--depth);padding:30px 28px;display:flex;flex-direction:column;gap:12px;
+    transition:background .35s ease;position:relative;}
+  .card::before{content:"";position:absolute;top:0;left:0;width:0;height:2px;background:var(--ember);transition:width .4s ease;}
+  .card:hover{background:var(--depth2);}
+  .card:hover::before{width:100%;}
+  .card h3{font-size:1.3rem;color:var(--mist);font-variation-settings:"opsz" 60,"SOFT" 0;}
+  .card p{margin:0;color:var(--sage);font-size:.97rem;line-height:1.55;}
+  @media (max-width:840px){.cards,.cards--two{grid-template-columns:1fr;}}
 
-  /* overview prose list */
-  .prose-list{display:grid;gap:22px;max-width:820px}
-  .prose-list p{color:var(--bone-dim);font-size:1.05rem;line-height:1.64}
-  .prose-list p .lead-num{
-    font-family:"Fraunces",serif;color:var(--brass);font-size:.95rem;
-    margin-right:12px;font-variant-numeric:tabular-nums;
+  /* geographic transect */
+  .geo-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start;}
+  .markets{list-style:none;margin:0;padding:0;border-top:1px solid var(--moss-dim);}
+  .markets li{
+    display:flex;align-items:baseline;gap:16px;
+    padding:15px 0;border-bottom:1px solid var(--moss-dim);
+    font-family:var(--serif);font-size:1.35rem;color:var(--mist);
+    font-variation-settings:"opsz" 60,"SOFT" 0;
+    transition:padding-left .3s ease,color .3s ease;
   }
+  .markets li:hover{padding-left:10px;}
+  .markets li .coord{font-family:var(--mono);font-size:11px;color:var(--sage);letter-spacing:.08em;margin-left:auto;}
+  .markets li:hover .coord{color:var(--ember);}
+  .geo-aside p{color:var(--sage);font-size:1.02rem;margin-top:0;}
+  .qualifier{font-size:.86rem;color:var(--sage);opacity:.78;line-height:1.55;
+    border-left:1px solid var(--moss);padding-left:16px;margin-top:26px;}
+  @media (max-width:820px){.geo-grid{grid-template-columns:1fr;}}
 
-  /* panels (cards) */
-  .panels{display:grid;gap:18px;margin-top:60px}
-  .cols-3{grid-template-columns:repeat(3,1fr)}
-  .cols-2{grid-template-columns:repeat(2,1fr)}
-  .panel{
-    background:linear-gradient(165deg, rgba(22,64,63,0.16), rgba(7,15,18,0.55));
-    border:1px solid var(--hairline);
-    border-radius:14px;
-    padding:30px 28px 32px;
-    position:relative;overflow:hidden;
-    transition:transform .4s cubic-bezier(.2,.7,.2,1), border-color .4s, box-shadow .4s;
-  }
-  .panel::before{
-    content:"";position:absolute;left:0;top:0;right:0;height:1px;
-    background:linear-gradient(90deg,transparent,rgba(231,189,120,.55),transparent);
-    opacity:0;transition:opacity .4s;
-  }
-  .panel:hover{
-    transform:translateY(-4px);
-    border-color:rgba(201,163,94,0.42);
-    box-shadow:0 20px 50px -28px rgba(0,0,0,.8), 0 0 60px -40px rgba(231,189,120,.5);
-  }
-  .panel:hover::before{opacity:1}
-  .panel h3{
-    font-family:"Fraunces",serif;font-weight:600;font-size:1.18rem;
-    color:var(--bone);margin-bottom:12px;letter-spacing:-.01em;
-  }
-  .panel p{color:var(--bone-dim);font-size:.96rem;line-height:1.6}
-  .panel .idx{
-    display:block;font-size:11px;letter-spacing:.22em;color:var(--brass);
-    margin-bottom:18px;font-variant-numeric:tabular-nums;
-  }
+  /* activities intro */
+  .act-intro p{color:var(--sage);max-width:70ch;margin:0 0 16px;}
 
-  /* intro paragraph for approach/governance */
-  .intro-para{max-width:760px;color:var(--bone-dim);font-size:1.08rem;line-height:1.62}
+  /* governance stat readout (instrument output, NOT giant hero numbers) */
+  .readout-strip{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border:1px solid var(--moss-dim);margin-top:clamp(34px,5vw,52px);
+    background:var(--depth2);
+  }
+  .readout{padding:26px 24px;border-right:1px solid var(--moss-dim);}
+  .readout:last-child{border-right:none;}
+  .readout__val{font-family:var(--serif);font-size:1.9rem;color:var(--ember);line-height:1;margin-bottom:10px;
+    font-variation-settings:"opsz" 90,"SOFT" 0;}
+  .readout__lbl{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);}
+  @media (max-width:720px){.readout-strip{grid-template-columns:1fr 1fr;}
+    .readout:nth-child(2){border-right:none;}
+    .readout:nth-child(1),.readout:nth-child(2){border-bottom:1px solid var(--moss-dim);}}
 
-  /* ===== GEOGRAPHIC ===== */
-  .geo-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:14px;margin:52px 0 40px}
-  .geo{
-    border:1px solid var(--hairline);border-radius:11px;
-    padding:26px 14px;text-align:center;
-    background:rgba(7,15,18,0.4);
-    transition:border-color .35s, background .35s, transform .35s;
-  }
-  .geo:hover{border-color:rgba(201,163,94,0.45);background:rgba(22,64,63,0.22);transform:translateY(-3px)}
-  .geo .glyph{
-    font-family:"Fraunces",serif;color:var(--amber);font-size:1.35rem;
-    display:block;margin-bottom:10px;
-  }
-  .geo .gname{font-size:.82rem;color:var(--bone-dim);letter-spacing:.02em;line-height:1.3}
-  .geo-qualifier{
-    max-width:820px;font-size:.9rem;color:var(--bone-faint);line-height:1.6;
-    padding-top:24px;border-top:1px solid var(--hairline);
-  }
+  /* firm */
+  .firm .prose p{font-size:1.08rem;}
 
-  /* ===== ACTIVITIES intro paras ===== */
-  .stack-para{display:grid;gap:20px;max-width:820px;margin-bottom:8px}
-  .stack-para p{color:var(--bone-dim);font-size:1.04rem;line-height:1.62}
+  /* contact */
+  .contact-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(28px,5vw,64px);align-items:start;}
+  .contact-grid > p{color:var(--sage);max-width:60ch;margin:0;}
+  .contact-card{border:1px solid var(--moss-dim);background:var(--depth);padding:30px 28px;}
+  .contact-card .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);display:block;margin-bottom:8px;}
+  .contact-card address{font-style:normal;color:var(--mist);font-size:1.02rem;line-height:1.7;margin-bottom:24px;}
+  .contact-card a.mail{font-family:var(--serif);font-size:1.4rem;color:var(--ember);
+    font-variation-settings:"opsz" 60,"SOFT" 0;border-bottom:1px solid var(--moss);transition:border-color .3s ease;}
+  .contact-card a.mail:hover{border-color:var(--ember);}
+  @media (max-width:760px){.contact-grid{grid-template-columns:1fr;}}
 
-  /* ===== STATS STRIP ===== */
-  .stats{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px;
-    border:1px solid var(--hairline);border-radius:14px;overflow:hidden;
-    background:linear-gradient(165deg, rgba(22,64,63,0.18), rgba(7,15,18,0.5));
-  }
-  .stat{padding:38px 26px;text-align:center;position:relative}
-  .stat:not(:last-child)::after{
-    content:"";position:absolute;right:0;top:18%;bottom:18%;width:1px;background:var(--hairline);
-  }
-  .stat .val{
-    font-family:"Fraunces",serif;font-weight:500;font-size:clamp(1.7rem,3vw,2.5rem);
-    color:var(--amber);line-height:1;letter-spacing:-.02em;
-  }
-  .stat .lab{
-    display:block;margin-top:14px;font-size:10.5px;letter-spacing:.2em;
-    text-transform:uppercase;color:var(--bone-faint);
-  }
+  /* footer */
+  footer{border-top:1px solid var(--moss);background:var(--depth2);padding:clamp(48px,7vw,80px) 0 48px;}
+  .foot-tag{font-family:var(--serif);font-size:clamp(1.3rem,2.6vw,1.8rem);color:var(--mist);max-width:30ch;margin:0 0 40px;
+    font-variation-settings:"opsz" 90,"SOFT" 0;}
+  .legal{font-size:.82rem;color:var(--sage);opacity:.74;max-width:90ch;line-height:1.6;margin:0 0 28px;}
+  .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;
+    padding-top:26px;border-top:1px solid var(--moss-dim);
+    font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--sage);}
+  .foot-links{display:flex;flex-wrap:wrap;gap:22px;}
+  .foot-links a{color:var(--sage);transition:color .25s ease;}
+  .foot-links a:hover{color:var(--ember);}
 
-  /* ===== FIRM ===== */
-  .firm-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:start}
-  .firm-grid .firm-list{display:grid;gap:24px}
-  .firm-grid .firm-list p{color:var(--bone-dim);font-size:1.05rem;line-height:1.62}
-
-  /* ===== CONTACT ===== */
-  .contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:start}
-  .contact-card{
-    border:1px solid var(--hairline);border-radius:14px;padding:34px 32px;
-    background:linear-gradient(165deg, rgba(22,64,63,0.18), rgba(7,15,18,0.5));
-  }
-  .contact-card .row{margin-bottom:24px}
-  .contact-card .row:last-child{margin-bottom:0}
-  .contact-card .rk{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);margin-bottom:8px}
-  .contact-card .rv{color:var(--bone);font-size:1.02rem;line-height:1.5}
-  .contact-card a.email{
-    color:var(--amber);border-bottom:1px solid rgba(231,189,120,.4);
-    padding-bottom:1px;transition:border-color .3s;
-  }
-  .contact-card a.email:hover{border-color:var(--amber)}
-
-  /* ===== FOOTER ===== */
-  footer{
-    border-top:1px solid var(--hairline);
-    padding:72px 0 56px;
-    background:linear-gradient(180deg, var(--midnight), var(--abyss));
-  }
-  .foot-tag{
-    font-family:"Fraunces",serif;font-weight:500;font-size:clamp(1.3rem,2.6vw,1.85rem);
-    color:var(--bone);max-width:24ch;line-height:1.2;letter-spacing:-.01em;
-    margin-bottom:48px;
-  }
-  .foot-brand{display:flex;align-items:center;gap:12px;margin-bottom:30px}
-  .foot-brand img{height:26px;width:auto}
-  .foot-brand .bname{font-family:"Fraunces",serif;font-weight:600;color:var(--bone)}
-  .legal-block{
-    font-size:12.5px;color:var(--bone-faint);line-height:1.7;max-width:90ch;
-    margin-bottom:28px;
-  }
-  .legal-links{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12.5px}
-  .legal-links a{color:var(--bone-dim);transition:color .25s}
-  .legal-links a:hover{color:var(--amber)}
-  .legal-links .sep{color:var(--bone-faint);opacity:.6}
-
-  /* reveal on scroll */
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1)}
-  .reveal.in{opacity:1;transform:none}
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width:960px){
-    .cols-3{grid-template-columns:repeat(2,1fr)}
-    .geo-grid{grid-template-columns:repeat(4,1fr)}
-    .stats{grid-template-columns:repeat(2,1fr)}
-    .stat:nth-child(2)::after{display:none}
-    .firm-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
-  }
-  @media (max-width:640px){
-    body{font-size:16px}
-    nav.links{display:none}
-    .nav-inner{padding:14px 20px}
-    .wrap{padding:0 20px}
-    .hero-inner{padding:84px 20px 132px}
-    section{padding:72px 0}
-    .cols-2,.cols-3{grid-template-columns:1fr}
-    .geo-grid{grid-template-columns:repeat(2,1fr)}
-    .stats{grid-template-columns:1fr}
-    .stat::after{display:none!important}
-    .stat:not(:last-child){border-bottom:1px solid var(--hairline)}
-  }
-
-  @media (prefers-reduced-motion:reduce){
-    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-    .hero-glow{animation:none!important;transform:translateX(-50%) scale(1.02);opacity:.92}
-    .reveal{opacity:1;transform:none}
+  /* mobile: collapse rail to nothing */
+  @media (max-width:880px){
+    :root{--rail:0px;}
+    .rail{display:none;}
+    .wrap{margin-left:0;}
+    nav.main{display:none;}
   }
 </style>
 </head>
 <body>
+<a class="skip" href="#overview">Skip to content</a>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a class="brand" href="#top" aria-label="Forrest Peak Capital — home">
-      <img src="/logo.svg" alt="Forrest Peak Capital logo">
-      <span class="bname">Forrest Peak Capital</span>
-    </a>
-    <nav class="links" aria-label="Primary">
-      <a href="#overview">Overview</a>
-      <a href="#approach">Investment Approach</a>
-      <a href="#geographic">Geographic Focus</a>
-      <a href="#activities">Activities</a>
-      <a href="#governance">Governance</a>
-      <a href="#firm">Firm</a>
-      <a href="#contact">Contact</a>
-    </nav>
+<!-- SIGNATURE: depth-sounding rail — a survey transect down the page -->
+<aside class="rail" aria-hidden="true">
+  <span class="rail__cap">FORREST PEAK · SOUNDING</span>
+  <div class="rail__gauge" id="gauge">
+    <span class="rail__readout" style="top:6%">000</span>
+    <span class="rail__readout" style="top:20%">120</span>
+    <span class="rail__readout" style="top:34%">340</span>
+    <span class="rail__readout" style="top:48%">560</span>
+    <span class="rail__readout" style="top:62%">780</span>
+    <span class="rail__readout" style="top:76%">960</span>
+    <span class="rail__readout" style="top:90%">∞</span>
   </div>
-</header>
+  <span class="rail__star" title="summit"></span>
+</aside>
 
-<!-- ===== HERO ===== -->
-<div class="hero" id="top">
-  <div class="hero-sky" aria-hidden="true"></div>
-  <div class="hero-stars" aria-hidden="true"></div>
-  <div class="hero-glow" aria-hidden="true"></div>
-  <svg class="hero-ridge" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
-    <defs>
-      <linearGradient id="ridgeFar" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#0d2321"/>
-        <stop offset="1" stop-color="#091619"/>
-      </linearGradient>
-      <linearGradient id="ridgeNear" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#081316"/>
-        <stop offset="1" stop-color="#060e11"/>
-      </linearGradient>
-    </defs>
-    <path fill="url(#ridgeFar)" d="M0,210 L160,168 L320,200 L470,150 L640,196 L820,138 L1010,188 L1200,156 L1440,196 L1440,320 L0,320 Z"/>
-    <path fill="url(#ridgeNear)" d="M0,258 L210,224 L420,262 L600,222 L780,266 L980,228 L1180,268 L1440,236 L1440,320 L0,320 Z"/>
-  </svg>
-  <div class="hero-inner">
-    <p class="label eyebrow">Forrest Peak Capital</p>
-    <h1>Proprietary investments. <span class="light">Long&#8209;term perspective.</span></h1>
-    <p class="lede">Forrest Peak Capital acquires, holds, manages and disposes of investments and other proprietary assets for its own account. We take a selective, disciplined and long-term approach to capital allocation across international markets.</p>
-    <p class="secondary">We also provide financing from our own capital to selected corporate counterparties as an ancillary treasury activity.</p>
-    <p class="metaline">
-      <span>Cayman Islands Incorporated</span>
-      <span>International Investment Focus</span>
-      <span>Proprietary Capital</span>
-    </p>
-  </div>
+<div class="wrap">
+
+  <header class="topbar">
+    <div class="col topbar__in">
+      <a class="brand" href="#top" aria-label="Forrest Peak Capital — home">
+        <img src="/logo.svg" alt="Forrest Peak Capital">
+      </a>
+      <nav class="main" aria-label="Primary">
+        <a href="#overview">Overview</a>
+        <a href="#approach">Investment Approach</a>
+        <a href="#geography">Geographic Focus</a>
+        <a href="#activities">Activities</a>
+        <a href="#governance">Governance</a>
+        <a href="#firm">Firm</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-h">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="col">
+        <p class="eyebrow">Forrest Peak Capital</p>
+        <h1 id="hero-h">
+          <span class="ln">Proprietary investments.</span>
+          <span class="ln ln2">Long-term perspective.<span class="star" aria-hidden="true"></span></span>
+        </h1>
+        <p class="lede">Forrest Peak Capital acquires, holds, manages and disposes of investments and other proprietary assets for its own account. We take a selective, disciplined and long-term approach to capital allocation across international markets.</p>
+        <p class="secondary">We also provide financing from our own capital to selected corporate counterparties as an ancillary treasury activity.</p>
+        <p class="metaline">
+          <span>Cayman Islands Incorporated</span>
+          <span>International Investment Focus</span>
+          <span>Proprietary Capital</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section id="overview" aria-labelledby="ov-h">
+      <div class="col">
+        <div class="sec-head">
+          <p class="sec-kicker">Overview</p>
+          <h2 class="sec-title" id="ov-h">What we do.</h2>
+        </div>
+        <div class="prose lede-col">
+          <p>Forrest Peak Capital is a privately capitalised investment company incorporated in the Cayman Islands with an international investment focus.</p>
+          <p>Our principal business is the acquisition, holding, management and disposal of investments and other proprietary assets for our own account.</p>
+          <p>We also undertake ancillary treasury activities, including providing financing from our own capital to selected corporate counterparties.</p>
+          <p>We evaluate selected opportunities across the United States, United Kingdom, European Union, Cayman Islands, United Arab Emirates, Hong Kong and Singapore. Our geographic focus is not exclusive and may evolve as market conditions and investment opportunities develop.</p>
+          <p>We invest selectively and manage capital with a focus on preservation, disciplined risk assessment and long-term value. We do not raise or manage capital for outside investors and do not provide investment management or advisory services to clients.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <h3>Proprietary capital</h3>
+            <p>We deploy capital from our own balance sheet. We do not operate a fund, accept deposits or manage third-party money.</p>
+          </article>
+          <article class="card">
+            <h3>Selective approach</h3>
+            <p>We assess each investment individually, considering its structure, underlying economics, risks, jurisdiction and long-term value.</p>
+          </article>
+          <article class="card">
+            <h3>Long-term ownership</h3>
+            <p>We may hold investments over extended periods and actively monitor their performance, risks and strategic development.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVESTMENT APPROACH -->
+    <section id="approach" aria-labelledby="ap-h">
+      <div class="col">
+        <div class="sec-head">
+          <p class="sec-kicker">Investment Approach</p>
+          <h2 class="sec-title" id="ap-h">How we allocate capital.</h2>
+        </div>
+        <div class="prose lede-col">
+          <p>Our activities include acquiring and holding equity interests, debt instruments and other proprietary assets. The form, jurisdiction, structure and duration of each investment depend on its commercial characteristics, risk profile and strategic fit.</p>
+        </div>
+        <div class="ledger">
+          <div class="row"><span class="row__idx">A.01</span><span class="row__term">Equity investments</span><span class="row__def">Direct or indirect minority and strategic interests in selected businesses and investment structures.</span></div>
+          <div class="row"><span class="row__idx">A.02</span><span class="row__term">Debt instruments</span><span class="row__def">Acquisition and holding of corporate debt, notes, receivables and other credit-related assets for our own account.</span></div>
+          <div class="row"><span class="row__idx">A.03</span><span class="row__term">Other proprietary assets</span><span class="row__def">Other assets and investment opportunities that meet our internal commercial, legal, compliance and risk criteria.</span></div>
+          <div class="row"><span class="row__idx">A.04</span><span class="row__term">Portfolio management</span><span class="row__def">Ongoing monitoring, risk assessment, restructuring, disposal and realisation of proprietary investments.</span></div>
+          <div class="row"><span class="row__idx">A.05</span><span class="row__term">Investment horizon</span><span class="row__def">Flexible holding periods determined by the characteristics and objectives of each investment.</span></div>
+          <div class="row"><span class="row__idx">A.06</span><span class="row__term">Capital source</span><span class="row__def">All investments are made using Forrest Peak&rsquo;s own capital. We do not pool or manage money for outside investors.</span></div>
+          <div class="row"><span class="row__idx">A.07</span><span class="row__term">International scope</span><span class="row__def">We consider investments and transactions across selected international jurisdictions, taking into account local legal requirements, market conditions, currency exposure, counterparty risk and cross-border structuring considerations.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GEOGRAPHIC FOCUS -->
+    <section id="geography" aria-labelledby="geo-h">
+      <div class="col">
+        <div class="sec-head">
+          <p class="sec-kicker">Geographic Focus</p>
+          <h2 class="sec-title" id="geo-h">Selected international markets.</h2>
+        </div>
+        <div class="geo-grid">
+          <div>
+            <ul class="markets">
+              <li>United States <span class="coord">NA · USD</span></li>
+              <li>United Kingdom <span class="coord">EU-W · GBP</span></li>
+              <li>European Union <span class="coord">EU · EUR</span></li>
+              <li>Cayman Islands <span class="coord">CARIB · KYD</span></li>
+              <li>United Arab Emirates <span class="coord">GULF · AED</span></li>
+              <li>Hong Kong <span class="coord">APAC · HKD</span></li>
+              <li>Singapore <span class="coord">APAC · SGD</span></li>
+            </ul>
+          </div>
+          <div class="geo-aside">
+            <p>Forrest Peak Capital evaluates proprietary investment opportunities and selected corporate transactions across established international financial and commercial markets.</p>
+            <p class="qualifier">Our geographic focus is selective and may evolve over time. References to a jurisdiction do not imply that Forrest Peak maintains an office, branch, licence or regulated presence in that jurisdiction. Each transaction is considered separately and remains subject to applicable legal, regulatory, tax and compliance requirements.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section id="activities" aria-labelledby="act-h">
+      <div class="col">
+        <div class="sec-head">
+          <p class="sec-kicker">Activities</p>
+          <h2 class="sec-title" id="act-h">Selective corporate financing.</h2>
+        </div>
+        <div class="act-intro lede-col">
+          <p>As an ancillary part of its proprietary investment and treasury activities, Forrest Peak provides financing from its own capital to selected corporate counterparties in its geographic focus markets and, where appropriate, in other jurisdictions.</p>
+          <p>Financing transactions are considered privately and on a case-by-case basis. Each transaction is subject to the nature and structure of the opportunity, the relevant jurisdictions, satisfactory due diligence, internal approval, contractual agreement and applicable law.</p>
+          <p>Forrest Peak does not provide consumer lending, accept deposits, operate a public lending platform or offer financing services to the general public.</p>
+        </div>
+        <div class="cards cards--two">
+          <article class="card"><h3>Corporate counterparties only</h3><p>Financing is provided only to selected corporate counterparties and is not available to individuals or retail customers.</p></article>
+          <article class="card"><h3>Proprietary capital</h3><p>All financing is provided from Forrest Peak&rsquo;s own capital and not from customer deposits or externally managed investor funds.</p></article>
+          <article class="card"><h3>Selective transactions</h3><p>Forrest Peak does not publish standard financing products or maintain an open application programme. Each transaction is assessed individually.</p></article>
+          <article class="card"><h3>Cross-border assessment</h3><p>Transactions involving multiple jurisdictions are subject to appropriate legal, tax, compliance and regulatory review.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOVERNANCE -->
+    <section id="governance" aria-labelledby="gov-h">
+      <div class="col">
+        <div class="sec-head">
+          <p class="sec-kicker">Governance</p>
+          <h2 class="sec-title" id="gov-h">Disciplined oversight.</h2>
+        </div>
+        <div class="prose lede-col">
+          <p>Investment and treasury decisions are subject to internal review, legal and commercial assessment, and proportionate compliance controls. We evaluate the nature of each asset, the relevant counterparties, the source and use of funds, jurisdictional considerations and the risks associated with each transaction.</p>
+        </div>
+        <div class="ledger">
+          <div class="row"><span class="row__idx">G.01</span><span class="row__term">Commercial review</span><span class="row__def">We assess the underlying business, asset, transaction structure, financial position and expected risk-adjusted outcome.</span></div>
+          <div class="row"><span class="row__idx">G.02</span><span class="row__term">Counterparty diligence</span><span class="row__def">Relevant counterparties and beneficial owners are subject to proportionate identity, ownership, sanctions and reputational checks.</span></div>
+          <div class="row"><span class="row__idx">G.03</span><span class="row__term">Ongoing monitoring</span><span class="row__def">We monitor material investments and exposures throughout the period in which they are held.</span></div>
+          <div class="row"><span class="row__idx">G.04</span><span class="row__term">Compliance</span><span class="row__def">AML, KYC, sanctions and other applicable compliance measures are applied according to the nature, jurisdiction and risk of each transaction.</span></div>
+        </div>
+        <div class="readout-strip" role="list" aria-label="Firm position">
+          <div class="readout" role="listitem"><div class="readout__val">100%</div><div class="readout__lbl">Proprietary Capital</div></div>
+          <div class="readout" role="listitem"><div class="readout__val">Int&rsquo;l</div><div class="readout__lbl">Investment Focus</div></div>
+          <div class="readout" role="listitem"><div class="readout__val">None</div><div class="readout__lbl">Outside Client Assets</div></div>
+          <div class="readout" role="listitem"><div class="readout__val">Selective</div><div class="readout__lbl">Capital Allocation</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FIRM -->
+    <section id="firm" class="firm" aria-labelledby="firm-h">
+      <div class="col">
+        <div class="sec-head">
+          <p class="sec-kicker">Firm</p>
+          <h2 class="sec-title" id="firm-h">A privately capitalised firm.</h2>
+        </div>
+        <div class="prose lede-col">
+          <p>Forrest Peak Capital is incorporated in the Cayman Islands and invests and manages its own capital across selected international markets.</p>
+          <p>Its principal activities are proprietary investment holding and management. It also provides financing from its own capital to selected corporate counterparties as an ancillary treasury activity.</p>
+          <p>The Company does not raise or manage money for outside investors, operate a pooled investment fund or provide investment services to clients.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="con-h">
+      <div class="col">
+        <div class="sec-head">
+          <p class="sec-kicker">Contact</p>
+          <h2 class="sec-title" id="con-h">Get in touch.</h2>
+        </div>
+        <div class="contact-grid">
+          <p>For general corporate, investment or counterparty enquiries, contact Forrest Peak Capital using the details below. The publication of contact information does not constitute an invitation, offer or solicitation concerning any investment, financing or financial service.</p>
+          <div class="contact-card">
+            <span class="lbl">Registered Office</span>
+            <address>
+              Forrest Peak Capital Ltd.<br>
+              George Town, Grand Cayman<br>
+              Cayman Islands
+            </address>
+            <span class="lbl">Enquiries</span>
+            <a class="mail" href="mailto:info@forrestpeak.com">info@forrestpeak.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="col">
+      <p class="foot-tag">We invest and manage our own capital with a selective, long-term and international approach.</p>
+      <p class="legal">© 2026 Forrest Peak Capital Ltd. All rights reserved. Information on this website is provided for general informational purposes only. It does not constitute an offer, invitation, recommendation or solicitation concerning any investment, security, financing or financial service. Forrest Peak Capital invests solely for its own account and does not manage third-party capital or provide investment services to clients. Any transaction is subject to separate agreement, satisfactory due diligence, internal approval and applicable law.</p>
+      <div class="foot-bottom">
+        <span>Forrest Peak Capital Ltd. · George Town, Grand Cayman</span>
+        <span class="foot-links">
+          <a href="/terms.html">Terms of Use</a>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/disclaimer.html">Legal &amp; Disclaimers</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
 </div>
 
-<!-- ===== OVERVIEW ===== -->
-<section id="overview" class="reveal">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="section-kicker">Overview</p>
-      <h2 class="section-title serif">What we do.</h2>
-    </div>
-    <div class="prose-list">
-      <p><span class="lead-num">01</span>Forrest Peak Capital is a privately capitalised investment company incorporated in the Cayman Islands with an international investment focus.</p>
-      <p><span class="lead-num">02</span>Our principal business is the acquisition, holding, management and disposal of investments and other proprietary assets for our own account.</p>
-      <p><span class="lead-num">03</span>We also undertake ancillary treasury activities, including providing financing from our own capital to selected corporate counterparties.</p>
-      <p><span class="lead-num">04</span>We evaluate selected opportunities across the United States, United Kingdom, European Union, Cayman Islands, United Arab Emirates, Hong Kong and Singapore. Our geographic focus is not exclusive and may evolve as market conditions and investment opportunities develop.</p>
-      <p><span class="lead-num">05</span>We invest selectively and manage capital with a focus on preservation, disciplined risk assessment and long-term value. We do not raise or manage capital for outside investors and do not provide investment management or advisory services to clients.</p>
-    </div>
-    <div class="panels cols-3">
-      <article class="panel">
-        <span class="idx">01</span>
-        <h3>Proprietary capital</h3>
-        <p>We deploy capital from our own balance sheet. We do not operate a fund, accept deposits or manage third-party money.</p>
-      </article>
-      <article class="panel">
-        <span class="idx">02</span>
-        <h3>Selective approach</h3>
-        <p>We assess each investment individually, considering its structure, underlying economics, risks, jurisdiction and long-term value.</p>
-      </article>
-      <article class="panel">
-        <span class="idx">03</span>
-        <h3>Long-term ownership</h3>
-        <p>We may hold investments over extended periods and actively monitor their performance, risks and strategic development.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ===== INVESTMENT APPROACH ===== -->
-<section id="approach" class="sec-divider reveal">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="section-kicker">Investment Approach</p>
-      <h2 class="section-title serif">How we allocate capital.</h2>
-      <p class="intro-para body-text">Our activities include acquiring and holding equity interests, debt instruments and other proprietary assets. The form, jurisdiction, structure and duration of each investment depend on its commercial characteristics, risk profile and strategic fit.</p>
-    </div>
-    <div class="panels cols-3">
-      <article class="panel"><span class="idx">01</span><h3>Equity investments</h3><p>Direct or indirect minority and strategic interests in selected businesses and investment structures.</p></article>
-      <article class="panel"><span class="idx">02</span><h3>Debt instruments</h3><p>Acquisition and holding of corporate debt, notes, receivables and other credit-related assets for our own account.</p></article>
-      <article class="panel"><span class="idx">03</span><h3>Other proprietary assets</h3><p>Other assets and investment opportunities that meet our internal commercial, legal, compliance and risk criteria.</p></article>
-      <article class="panel"><span class="idx">04</span><h3>Portfolio management</h3><p>Ongoing monitoring, risk assessment, restructuring, disposal and realisation of proprietary investments.</p></article>
-      <article class="panel"><span class="idx">05</span><h3>Investment horizon</h3><p>Flexible holding periods determined by the characteristics and objectives of each investment.</p></article>
-      <article class="panel"><span class="idx">06</span><h3>Capital source</h3><p>All investments are made using Forrest Peak's own capital. We do not pool or manage money for outside investors.</p></article>
-      <article class="panel"><span class="idx">07</span><h3>International scope</h3><p>We consider investments and transactions across selected international jurisdictions, taking into account local legal requirements, market conditions, currency exposure, counterparty risk and cross-border structuring considerations.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- ===== GEOGRAPHIC FOCUS ===== -->
-<section id="geographic" class="sec-divider reveal">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="section-kicker">Geographic Focus</p>
-      <h2 class="section-title serif">Selected international markets.</h2>
-      <p class="intro-para body-text">Forrest Peak Capital evaluates proprietary investment opportunities and selected corporate transactions across established international financial and commercial markets.</p>
-    </div>
-    <div class="geo-grid">
-      <div class="geo"><span class="glyph">US</span><span class="gname">United States</span></div>
-      <div class="geo"><span class="glyph">UK</span><span class="gname">United Kingdom</span></div>
-      <div class="geo"><span class="glyph">EU</span><span class="gname">European Union</span></div>
-      <div class="geo"><span class="glyph">KY</span><span class="gname">Cayman Islands</span></div>
-      <div class="geo"><span class="glyph">AE</span><span class="gname">United Arab Emirates</span></div>
-      <div class="geo"><span class="glyph">HK</span><span class="gname">Hong Kong</span></div>
-      <div class="geo"><span class="glyph">SG</span><span class="gname">Singapore</span></div>
-    </div>
-    <p class="geo-qualifier">Our geographic focus is selective and may evolve over time. References to a jurisdiction do not imply that Forrest Peak maintains an office, branch, licence or regulated presence in that jurisdiction. Each transaction is considered separately and remains subject to applicable legal, regulatory, tax and compliance requirements.</p>
-  </div>
-</section>
-
-<!-- ===== ACTIVITIES ===== -->
-<section id="activities" class="sec-divider reveal">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="section-kicker">Activities</p>
-      <h2 class="section-title serif">Selective corporate financing.</h2>
-    </div>
-    <div class="stack-para">
-      <p>As an ancillary part of its proprietary investment and treasury activities, Forrest Peak provides financing from its own capital to selected corporate counterparties in its geographic focus markets and, where appropriate, in other jurisdictions.</p>
-      <p>Financing transactions are considered privately and on a case-by-case basis. Each transaction is subject to the nature and structure of the opportunity, the relevant jurisdictions, satisfactory due diligence, internal approval, contractual agreement and applicable law.</p>
-      <p>Forrest Peak does not provide consumer lending, accept deposits, operate a public lending platform or offer financing services to the general public.</p>
-    </div>
-    <div class="panels cols-2">
-      <article class="panel"><span class="idx">01</span><h3>Corporate counterparties only</h3><p>Financing is provided only to selected corporate counterparties and is not available to individuals or retail customers.</p></article>
-      <article class="panel"><span class="idx">02</span><h3>Proprietary capital</h3><p>All financing is provided from Forrest Peak's own capital and not from customer deposits or externally managed investor funds.</p></article>
-      <article class="panel"><span class="idx">03</span><h3>Selective transactions</h3><p>Forrest Peak does not publish standard financing products or maintain an open application programme. Each transaction is assessed individually.</p></article>
-      <article class="panel"><span class="idx">04</span><h3>Cross-border assessment</h3><p>Transactions involving multiple jurisdictions are subject to appropriate legal, tax, compliance and regulatory review.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- ===== GOVERNANCE ===== -->
-<section id="governance" class="sec-divider reveal">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="section-kicker">Governance</p>
-      <h2 class="section-title serif">Disciplined oversight.</h2>
-      <p class="intro-para body-text">Investment and treasury decisions are subject to internal review, legal and commercial assessment, and proportionate compliance controls. We evaluate the nature of each asset, the relevant counterparties, the source and use of funds, jurisdictional considerations and the risks associated with each transaction.</p>
-    </div>
-    <div class="panels cols-2">
-      <article class="panel"><span class="idx">01</span><h3>Commercial review</h3><p>We assess the underlying business, asset, transaction structure, financial position and expected risk-adjusted outcome.</p></article>
-      <article class="panel"><span class="idx">02</span><h3>Counterparty diligence</h3><p>Relevant counterparties and beneficial owners are subject to proportionate identity, ownership, sanctions and reputational checks.</p></article>
-      <article class="panel"><span class="idx">03</span><h3>Ongoing monitoring</h3><p>We monitor material investments and exposures throughout the period in which they are held.</p></article>
-      <article class="panel"><span class="idx">04</span><h3>Compliance</h3><p>AML, KYC, sanctions and other applicable compliance measures are applied according to the nature, jurisdiction and risk of each transaction.</p></article>
-    </div>
-    <div class="stats">
-      <div class="stat"><div class="val">100%</div><span class="lab">Proprietary Capital</span></div>
-      <div class="stat"><div class="val">Int'l</div><span class="lab">Investment Focus</span></div>
-      <div class="stat"><div class="val">None</div><span class="lab">Outside Client Assets</span></div>
-      <div class="stat"><div class="val">Selective</div><span class="lab">Capital Allocation</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FIRM ===== -->
-<section id="firm" class="sec-divider reveal">
-  <div class="wrap">
-    <div class="firm-grid">
-      <div class="sec-head" style="margin-bottom:0">
-        <p class="section-kicker">Firm</p>
-        <h2 class="section-title serif">A privately capitalised firm.</h2>
-      </div>
-      <div class="firm-list">
-        <p>Forrest Peak Capital is incorporated in the Cayman Islands and invests and manages its own capital across selected international markets.</p>
-        <p>Its principal activities are proprietary investment holding and management. It also provides financing from its own capital to selected corporate counterparties as an ancillary treasury activity.</p>
-        <p>The Company does not raise or manage money for outside investors, operate a pooled investment fund or provide investment services to clients.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CONTACT ===== -->
-<section id="contact" class="sec-divider reveal">
-  <div class="wrap">
-    <div class="contact-grid">
-      <div class="sec-head" style="margin-bottom:0">
-        <p class="section-kicker">Contact</p>
-        <h2 class="section-title serif">Get in touch.</h2>
-        <p class="intro-para body-text">For general corporate, investment or counterparty enquiries, contact Forrest Peak Capital using the details below. The publication of contact information does not constitute an invitation, offer or solicitation concerning any investment, financing or financial service.</p>
-      </div>
-      <div class="contact-card">
-        <div class="row">
-          <div class="rk">Office</div>
-          <div class="rv">Forrest Peak Capital Ltd.<br>George Town, Grand Cayman<br>Cayman Islands</div>
-        </div>
-        <div class="row">
-          <div class="rk">Email</div>
-          <div class="rv"><a class="email" href="mailto:info@forrestpeak.com">info@forrestpeak.com</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer>
-  <div class="wrap">
-    <p class="foot-tag serif">We invest and manage our own capital with a selective, long-term and international approach.</p>
-    <div class="foot-brand">
-      <img src="/logo.svg" alt="Forrest Peak Capital logo">
-      <span class="bname">Forrest Peak Capital</span>
-    </div>
-    <p class="legal-block">© 2026 Forrest Peak Capital Ltd. All rights reserved. Information on this website is provided for general informational purposes only. It does not constitute an offer, invitation, recommendation or solicitation concerning any investment, security, financing or financial service. Forrest Peak Capital invests solely for its own account and does not manage third-party capital or provide investment services to clients. Any transaction is subject to separate agreement, satisfactory due diligence, internal approval and applicable law.</p>
-    <div class="legal-links">
-      <a href="/terms.html">Terms of Use</a><span class="sep">·</span>
-      <a href="/privacy.html">Privacy Policy</a><span class="sep">·</span>
-      <a href="/disclaimer.html">Legal &amp; Disclaimers</a>
-    </div>
-  </div>
-</footer>
-
 <script>
+  // Depth rail: light the readout nearest the current scroll depth.
   (function(){
-    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var els = document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){ if(en.isIntersecting){en.target.classList.add('in'); io.unobserve(en.target);} });
-    },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
-    els.forEach(function(e){io.observe(e)});
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    var readouts = Array.prototype.slice.call(document.querySelectorAll('.rail__readout'));
+    if(!readouts.length) return;
+    var ticking = false;
+    function update(){
+      ticking = false;
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - doc.clientHeight;
+      var p = max > 0 ? (window.scrollY / max) : 0;
+      var idx = Math.min(readouts.length-1, Math.round(p*(readouts.length-1)));
+      readouts.forEach(function(r,i){ r.classList.toggle('is-active', i===idx); });
+    }
+    function onScroll(){ if(!ticking){ ticking = true; (reduce?update:requestAnimationFrame)(update); } }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    update();
   })();
 </script>
 </body>
